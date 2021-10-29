@@ -214,7 +214,173 @@ class PaymentPage extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
+          Container(
+            margin: EdgeInsets.only(bottom: defaultMargin),
+            padding: EdgeInsets.symmetric(
+              horizontal: defaultMargin,
+              vertical: 16,
+            ),
+            color: Colors.white,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Deliver to:',
+                  style: blackFontStyle3,
+                ),
+                SizedBox(
+                  height: 12,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2 -
+                          defaultMargin -
+                          5,
+                      child: Text('Name'),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2 -
+                          defaultMargin -
+                          5,
+                      child: Text(
+                        transaction.user.name,
+                        style: blackFontStyle3,
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2 -
+                          defaultMargin -
+                          5,
+                      child: Text('Phone No'),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2 -
+                          defaultMargin -
+                          5,
+                      child: Text(
+                        transaction.user.phoneNumber,
+                        style: blackFontStyle3,
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2 -
+                          defaultMargin -
+                          5,
+                      child: Text('Address'),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2 -
+                          defaultMargin -
+                          5,
+                      child: Text(
+                        transaction.user.address,
+                        style: blackFontStyle3,
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2 -
+                          defaultMargin -
+                          5,
+                      child: Text('House No'),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2 -
+                          defaultMargin -
+                          5,
+                      child: Text(
+                        transaction.user.houseNumber,
+                        style: blackFontStyle3,
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2 -
+                          defaultMargin -
+                          5,
+                      child: Text('City'),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2 -
+                          defaultMargin -
+                          5,
+                      child: Text(
+                        transaction.user.city,
+                        style: blackFontStyle3,
+                        textAlign: TextAlign.right,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.only(top: 24),
+            height: 45,
+            padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+            // ignore: deprecated_member_use
+            child: RaisedButton(
+              onPressed: () {
+                // print('Test');
+              },
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              color: mainColor,
+              child: Text(
+                'Checkout Now',
+                style: GoogleFonts.poppins(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
