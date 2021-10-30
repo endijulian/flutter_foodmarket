@@ -30,6 +30,8 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
         buttonTitle1: 'Find Food',
       );
     } else {
+      double listItemWidth =
+          MediaQuery.of(context).size.width - 2 * defaultMargin;
       return ListView(
         children: [
           Column(
@@ -72,7 +74,15 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                     ),
                     Column(
                       children: (selectedIndex == 0 ? inProgress : past)
-                          .map((e) => Text(e.food.name))
+                          .map((e) => Padding(
+                                padding: const EdgeInsets.only(
+                                  right: defaultMargin,
+                                  left: defaultMargin,
+                                  bottom: 16,
+                                ),
+                                child: OrderListItem(
+                                    transaction: e, itemWidth: listItemWidth),
+                              ))
                           .toList(),
                     )
                   ],

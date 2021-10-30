@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:foodmarket/shared/shared.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:foodmarket/models/models.dart';
 // ignore: unused_import
@@ -12,3 +13,4 @@ part 'food_card.dart';
 part 'rating_stars.dart';
 part 'custom_tabbar.dart';
 part 'food_list_item.dart';
+part 'order_list_item.dart';
