@@ -65,17 +65,17 @@ class IllustrationPage extends StatelessWidget {
                   width: 200,
                   height: 45,
                   child: RaisedButton(
-                    onPressed: () {
-                      // print('Test');
-                    },
+                    onPressed: buttonTap1,
                     color: '8D92A3'.toColor(),
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
                     child: Text(
-                      buttonTitle1,
-                      style:
-                          blackFontStyle3.copyWith(fontWeight: FontWeight.w500),
+                      buttonTitle2 ?? 'tittle',
+                      style: blackFontStyle3.copyWith(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
