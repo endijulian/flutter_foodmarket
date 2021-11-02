@@ -47,7 +47,10 @@ class _FoodPageState extends State<FoodPage> {
                       borderRadius: BorderRadius.circular(8),
                       image: DecorationImage(
                         image: NetworkImage(
-                            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW-9BxRf3mZaSR5eD_6KautIxNyD4YnEyzPw&usqp=CAU'),
+                            // ignore: deprecated_member_use
+                            (context.bloc<UserCubit>().state as UserLoaded)
+                                .user
+                                .picturePath),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -72,7 +75,21 @@ class _FoodPageState extends State<FoodPage> {
                                     (e == mockFoods.first) ? defaultMargin : 0,
                                 right: defaultMargin,
                               ),
-                              child: FoodCard(e),
+                              child: GestureDetector(
+                                  onTap: () {
+                                    Get.to(FoodDetailsPage(
+                                      transaction: Transaction(
+                                          food: e,
+                                          // ignore: deprecated_member_use
+                                          user: (context.bloc<UserCubit>().state
+                                                  as UserLoaded)
+                                              .user),
+                                      onBackButtonPressed: () {
+                                        Get.back();
+                                      },
+                                    ));
+                                  },
+                                  child: FoodCard(e)),
                             ))
                         .toList(),
                   )

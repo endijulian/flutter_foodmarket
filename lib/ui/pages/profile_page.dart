@@ -36,17 +36,24 @@ class _ProfilePageState extends State<ProfilePage> {
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                              image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW-9BxRf3mZaSR5eD_6KautIxNyD4YnEyzPw&usqp=CAU'),
+                              image: NetworkImage((context
+                                      // ignore: deprecated_member_use
+                                      .bloc<UserCubit>()
+                                      .state as UserLoaded)
+                                  .user
+                                  .picturePath),
                               fit: BoxFit.cover)),
                     ),
                   ),
                   Text(
-                    "Endi Julian",
+                    // ignore: deprecated_member_use
+                    (context.bloc<UserCubit>().state as UserLoaded).user.name,
                     style: GoogleFonts.poppins(
                         fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                   Text(
-                    "endijulian080798@gmail.com",
+                    // ignore: deprecated_member_use
+                    (context.bloc<UserCubit>().state as UserLoaded).user.email,
                     style: greyFontsStyle.copyWith(fontWeight: FontWeight.w300),
                   )
                 ],

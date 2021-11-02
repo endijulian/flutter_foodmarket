@@ -42,5 +42,6 @@ User mockUser = User(
   phoneNumber: '085779236411',
   email: 'endijulian080798@gmail.com',
   picturePath:
-      'https://asset.kompas.com/crops/2cn9m6iclb4Ny7yexC9IQHazXMM=/0x0:1004x669/750x500/data/photo/2020/11/22/5fb99d03473ea.jpg',
+      'https://asset.kompas.com/crops/2cn9m6iclb4Ny7yexC9IQHazXMM=/0x0:1004x669/750x500/data/photo/2020/11/22/5fb99d03473ea.jpg' ??
+          null,
 );
