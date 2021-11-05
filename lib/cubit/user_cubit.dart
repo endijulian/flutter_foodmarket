@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:foodmarket/cubit/cubit.dart';
 import 'package:foodmarket/models/models.dart';
 import 'package:foodmarket/services/services.dart';
 
@@ -38,7 +37,7 @@ class UserCubit extends Cubit<UserState> {
 
     if (result.value != null) {
       emit(UserLoaded((state as UserLoaded).user.copyWith(
-          picturePath: "http://127.0.0.1:8000/storage/" + result.value)));
+          picturePath: "http://192.168.105.148:8000/storage/" + result.value)));
     }
   }
 }

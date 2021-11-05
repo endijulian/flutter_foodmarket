@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:foodmarket/cubit/cubit.dart';
 import 'package:foodmarket/cubit/user_cubit.dart';
 import 'package:foodmarket/models/models.dart';
 import 'package:foodmarket/ui/widgets/widgets.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 // ignore: unused_import

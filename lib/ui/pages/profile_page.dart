@@ -7,6 +7,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   int selectedIndex = 0;
+  File pictureFile;
 
   @override
   Widget build(BuildContext context) {
@@ -32,18 +33,26 @@ class _ProfilePageState extends State<ProfilePage> {
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage('assets/photo_border.png'))),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              image: NetworkImage((context
-                                      // ignore: deprecated_member_use
-                                      .bloc<UserCubit>()
-                                      .state as UserLoaded)
-                                  .user
-                                  .picturePath),
-                              fit: BoxFit.cover)),
-                    ),
+                    child: (pictureFile != null)
+                        ? Container(
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                    image: NetworkImage((context
+                                            // ignore: deprecated_member_use
+                                            .bloc<UserCubit>()
+                                            .state as UserLoaded)
+                                        .user
+                                        .picturePath),
+                                    fit: BoxFit.cover)),
+                          )
+                        : Container(
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                    image: AssetImage('assets/photo.png'),
+                                    fit: BoxFit.cover)),
+                          ),
                   ),
                   Text(
                     // ignore: deprecated_member_use

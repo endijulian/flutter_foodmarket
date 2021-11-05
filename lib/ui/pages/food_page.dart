@@ -7,6 +7,7 @@ class FoodPage extends StatefulWidget {
 
 class _FoodPageState extends State<FoodPage> {
   int selectedIndex = 0;
+  File pictureFile;
 
   @override
   Widget build(BuildContext context) {
@@ -40,21 +41,34 @@ class _FoodPageState extends State<FoodPage> {
                       ),
                     ],
                   ),
-                  Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      image: DecorationImage(
-                        image: NetworkImage(
-                            // ignore: deprecated_member_use
-                            (context.bloc<UserCubit>().state as UserLoaded)
-                                .user
-                                .picturePath),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  )
+                  (pictureFile != null)
+                      ? Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                  // ignore: deprecated_member_use
+                                  (context.bloc<UserCubit>().state
+                                          as UserLoaded)
+                                      .user
+                                      .picturePath),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        )
+                      : Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            image: DecorationImage(
+                              image: AssetImage('assets/photo.png'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
                 ],
               ),
             ),
