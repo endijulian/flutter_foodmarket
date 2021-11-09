@@ -87,7 +87,7 @@ class _FoodPageState extends State<FoodPage> {
                             children: state.foods
                                 .map((e) => Padding(
                                       padding: EdgeInsets.only(
-                                        left: (e == mockFoods.first)
+                                        left: (e == state.foods.first)
                                             ? defaultMargin
                                             : 0,
                                         right: defaultMargin,
@@ -124,7 +124,7 @@ class _FoodPageState extends State<FoodPage> {
               child: Column(
                 children: [
                   CustomTabBar(
-                    titles: ['New Taste', 'Popular', 'Recomended'],
+                    titles: ['New Taste', 'Popular', 'Recommended'],
                     selectedIndex: selectedIndex,
                     onTap: (index) {
                       setState(() {
@@ -143,7 +143,7 @@ class _FoodPageState extends State<FoodPage> {
                                   ? FoodType.new_food
                                   : (selectedIndex == 1)
                                       ? FoodType.popular
-                                      : FoodType.recomended))
+                                      : FoodType.recommended))
                           .toList();
 
                       return Column(

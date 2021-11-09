@@ -22,7 +22,7 @@ class UserServices {
       }
 
       var data = jsonDecode(response.body);
-      User.token = data['data']['acces_token'];
+      User.token = data['data']['access_token'];
       User value = User.fromJson(data['data']['user']);
 
       return ApiReturnValue(value: value);
@@ -54,7 +54,7 @@ class UserServices {
     }
 
     var data = jsonDecode(response.body);
-    User.token = data['data']['acces_token'];
+    User.token = data['data']['access_token'];
     User value = User.fromJson(data['data']['user']);
     // User value = data['data']['user'];
 
