@@ -37,7 +37,8 @@ class UserCubit extends Cubit<UserState> {
 
     if (result.value != null) {
       emit(UserLoaded((state as UserLoaded).user.copyWith(
-          picturePath: "http://192.168.105.148:8000/storage/" + result.value)));
+          picturePath: "http://foodmarket-backend.buildwithangga.id/storage/" +
+              result.value)));
     }
   }
 }

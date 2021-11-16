@@ -280,6 +280,7 @@ class _PaymentPageState extends State<PaymentPage> {
                           defaultMargin -
                           5,
                       child: Text(
+                        // 'Phone Number',
                         widget.transaction.user.phoneNumber,
                         style: blackFontStyle3,
                         textAlign: TextAlign.right,
@@ -305,6 +306,7 @@ class _PaymentPageState extends State<PaymentPage> {
                           defaultMargin -
                           5,
                       child: Text(
+                        // 'Address',
                         widget.transaction.user.address,
                         style: blackFontStyle3,
                         textAlign: TextAlign.right,
@@ -330,6 +332,7 @@ class _PaymentPageState extends State<PaymentPage> {
                           defaultMargin -
                           5,
                       child: Text(
+                        // 'House Num',
                         widget.transaction.user.houseNumber,
                         style: blackFontStyle3,
                         textAlign: TextAlign.right,
@@ -355,6 +358,7 @@ class _PaymentPageState extends State<PaymentPage> {
                           defaultMargin -
                           5,
                       child: Text(
+                        // 'Kota',
                         widget.transaction.user.city,
                         style: blackFontStyle3,
                         textAlign: TextAlign.right,
@@ -381,7 +385,7 @@ class _PaymentPageState extends State<PaymentPage> {
                         isLoading = true;
                       });
 
-                      String  paymentURL = await context
+                      String paymentURL = await context
                           .bloc<TransactionCubit>()
                           .submitTransaction(widget.transaction.copyWith(
                               dateTime: DateTime.now(),

@@ -55,13 +55,11 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                   ),
                   Text(
-                    // ignore: deprecated_member_use
                     (context.bloc<UserCubit>().state as UserLoaded).user.name,
                     style: GoogleFonts.poppins(
                         fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                   Text(
-                    // ignore: deprecated_member_use
                     (context.bloc<UserCubit>().state as UserLoaded).user.email,
                     style: greyFontsStyle.copyWith(fontWeight: FontWeight.w300),
                   )

@@ -8,4 +8,4 @@ part 'user_services.dart';
 part 'food_services.dart';
 part 'transaction_services.dart';
 
-String baseUrl = 'http://192.168.105.148:8000/api/';
+String baseUrl = 'http://192.168.0.110:8000/api/';

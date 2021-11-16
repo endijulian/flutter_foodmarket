@@ -3,11 +3,9 @@ part of 'services.dart';
 class TransactionServices {
   static Future<ApiReturnValue<List<Transaction>>> getTransactions(
       {http.Client client}) async {
-    // await Future.delayed(Duration(seconds: 3));
-    // return ApiReturnValue(value: mockTransactions);
     client ??= http.Client();
 
-    String url = baseUrl + 'transaction/?limit=1000';
+    String url = baseUrl + 'transaction';
 
     var response = await client.get(url, headers: {
       "Content-Type": "application/json",
@@ -29,12 +27,6 @@ class TransactionServices {
   static Future<ApiReturnValue<Transaction>> submitTransaction(
       Transaction transaction,
       {http.Client client}) async {
-    // await Future.delayed(Duration(seconds: 2));
-    // return ApiReturnValue(
-    //     value:
-    //         transaction.copyWith(id: 123, status: TransactionStatus.pending));
-    // return ApiReturnValue(message: "Transaksi Gagal");
-
     client ??= http.Client();
 
     String url = baseUrl + 'checkout';
