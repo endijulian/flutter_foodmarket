@@ -81,12 +81,16 @@ class _SignInPageState extends State<SignInPage> {
                         isLoading = true;
                       });
 
+                      // ignore: deprecated_member_use
                       await context.bloc<UserCubit>().signIn(
                           emailController.text, passwordController.text);
+                      // ignore: deprecated_member_use
                       UserState state = context.bloc<UserCubit>().state;
 
                       if (state is UserLoaded) {
+                        // ignore: deprecated_member_use
                         context.bloc<FoodCubit>().getFoods();
+                        // ignore: deprecated_member_use
                         context.bloc<TransactionCubit>().getTransactions();
                         Get.to(MainPage());
                       } else {

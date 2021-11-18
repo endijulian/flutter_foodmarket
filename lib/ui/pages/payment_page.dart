@@ -386,6 +386,7 @@ class _PaymentPageState extends State<PaymentPage> {
                       });
 
                       String paymentURL = await context
+                          // ignore: deprecated_member_use
                           .bloc<TransactionCubit>()
                           .submitTransaction(widget.transaction.copyWith(
                               dateTime: DateTime.now(),

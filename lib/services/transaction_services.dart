@@ -1,8 +1,7 @@
 part of 'services.dart';
 
 class TransactionServices {
-  static Future<ApiReturnValue<List<Transaction>>> getTransactions(
-      {http.Client client}) async {
+  static Future<ApiReturnValue<List<Transaction>>> getTransactions({http.Client client}) async {
     client ??= http.Client();
 
     String url = baseUrl + 'transaction';
@@ -17,6 +16,7 @@ class TransactionServices {
     }
 
     var data = jsonDecode(response.body);
+
     List<Transaction> transactions = (data['data']['data'] as Iterable)
         .map((e) => Transaction.fromJson(e))
         .toList();
@@ -41,7 +41,7 @@ class TransactionServices {
           'user_id': transaction.user.id,
           "quantity": transaction.quantity,
           "total": transaction.total,
-          "status": 'PENDING'
+          "status": "PENDING"
         }));
 
     if (response.statusCode != 200) {
@@ -49,6 +49,7 @@ class TransactionServices {
     }
 
     var data = jsonDecode(response.body);
+
     Transaction value = Transaction.fromJson(data['data']);
 
     return ApiReturnValue(value: value);

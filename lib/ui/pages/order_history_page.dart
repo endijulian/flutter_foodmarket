@@ -7,8 +7,6 @@ class OrderHistoryPage extends StatefulWidget {
 
 class _OrderHistoryPageState extends State<OrderHistoryPage> {
   int selectedIndex = 0;
-  // List<Transaction> inProgress =
-  // List<Transaction> past =
 
   @override
   Widget build(BuildContext context) {
@@ -19,20 +17,25 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
             title: 'Ouch! Hungry',
             subtitle: 'Seems you like have not\nordered any food yet',
             picturePath: 'assets/love_burger.png',
-            buttonTap1: () {},
-            buttonTitle1: 'Find Food',
+            buttonTap1: () {
+              Get.offAll(MainPage());
+            },
+            buttonTitle1: 'Find Foods',
           );
         } else {
           double listItemWidth =
               MediaQuery.of(context).size.width - 2 * defaultMargin;
+
           return RefreshIndicator(
             onRefresh: () async {
+              // ignore: deprecated_member_use
               await context.bloc<TransactionCubit>().getTransactions();
             },
             child: ListView(
               children: [
                 Column(
                   children: [
+                    //// Header
                     Container(
                       height: 100,
                       width: double.infinity,
@@ -43,7 +46,10 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('Your Orders', style: blackFontStyle1),
+                          Text(
+                            'Your Orders',
+                            style: blackFontStyle1,
+                          ),
                           Text(
                             'Wait for the best meal',
                             style: greyFontsStyle.copyWith(
@@ -52,6 +58,7 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                         ],
                       ),
                     ),
+                    //// Body
                     Container(
                       width: double.infinity,
                       color: Colors.white,
@@ -70,30 +77,30 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                             height: 16,
                           ),
                           Builder(builder: (_) {
-                            List<Transaction> transactions = (selectedIndex ==
-                                    0)
-                                ? state.transactions
-                                    .where((element) =>
-                                        element.status ==
-                                            TransactionStatus.on_deliverey ||
-                                        element.status ==
-                                            TransactionStatus.pending)
-                                    .toList()
-                                : state.transactions
-                                    .where((element) =>
-                                        element.status ==
-                                            TransactionStatus.delivered ||
-                                        element.status ==
-                                            TransactionStatus.cancelled)
-                                    .toList();
+                            List<Transaction> transactions =
+                                (selectedIndex == 0)
+                                    ? state.transactions
+                                        .where((element) =>
+                                            element.status ==
+                                                TransactionStatus.on_delivery ||
+                                            element.status ==
+                                                TransactionStatus.pending)
+                                        .toList()
+                                    : state.transactions
+                                        .where((element) =>
+                                            element.status ==
+                                                TransactionStatus.delivered ||
+                                            element.status ==
+                                                TransactionStatus.cancelled)
+                                        .toList();
+
                             return Column(
-                              children: (transactions)
+                              children: transactions
                                   .map((e) => Padding(
                                         padding: const EdgeInsets.only(
-                                          right: defaultMargin,
-                                          left: defaultMargin,
-                                          bottom: 16,
-                                        ),
+                                            right: defaultMargin,
+                                            left: defaultMargin,
+                                            bottom: 16),
                                         child: GestureDetector(
                                           onTap: () async {
                                             if (e.status ==
@@ -115,15 +122,16 @@ class _OrderHistoryPageState extends State<OrderHistoryPage> {
                         ],
                       ),
                     )
-                    ////BAGIAN BODY
                   ],
-                )
+                ),
               ],
             ),
           );
         }
       } else {
-        return Center(child: loadingIndicator);
+        return Center(
+          child: loadingIndicator,
+        );
       }
     });
   }

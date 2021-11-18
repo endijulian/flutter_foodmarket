@@ -41,34 +41,21 @@ class _FoodPageState extends State<FoodPage> {
                       ),
                     ],
                   ),
-                  (pictureFile != null)
-                      ? Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            image: DecorationImage(
-                              image: NetworkImage(
-                                  // ignore: deprecated_member_use
-                                  (context.bloc<UserCubit>().state
-                                          as UserLoaded)
-                                      .user
-                                      .picturePath),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        )
-                      : Container(
-                          width: 50,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            image: DecorationImage(
-                              image: AssetImage('assets/photo.png'),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      image: DecorationImage(
+                        image: NetworkImage(
+                            // ignore: deprecated_member_use
+                            (context.bloc<UserCubit>().state as UserLoaded)
+                                .user
+                                .picturePath),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -99,6 +86,7 @@ class _FoodPageState extends State<FoodPage> {
                                                   food: e,
                                                   // ignore: deprecated_member_use
                                                   user: (context
+                                                          // ignore: deprecated_member_use
                                                           .bloc<UserCubit>()
                                                           .state as UserLoaded)
                                                       .user),

@@ -26,40 +26,33 @@ class _ProfilePageState extends State<ProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 110,
-                    height: 110,
-                    margin: EdgeInsets.only(bottom: 16),
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/photo_border.png'))),
-                    child: (pictureFile != null)
-                        ? Container(
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                    image: NetworkImage((context
-                                            // ignore: deprecated_member_use
-                                            .bloc<UserCubit>()
-                                            .state as UserLoaded)
-                                        .user
-                                        .picturePath),
-                                    fit: BoxFit.cover)),
-                          )
-                        : Container(
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                    image: AssetImage('assets/photo.png'),
-                                    fit: BoxFit.cover)),
-                          ),
-                  ),
+                      width: 110,
+                      height: 110,
+                      margin: EdgeInsets.only(bottom: 16),
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/photo_border.png'))),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                image: NetworkImage((context
+                                        // ignore: deprecated_member_use
+                                        .bloc<UserCubit>()
+                                        .state as UserLoaded)
+                                    .user
+                                    .picturePath),
+                                fit: BoxFit.cover)),
+                      )),
                   Text(
+                    // ignore: deprecated_member_use
                     (context.bloc<UserCubit>().state as UserLoaded).user.name,
                     style: GoogleFonts.poppins(
                         fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                   Text(
+                    // ignore: deprecated_member_use
                     (context.bloc<UserCubit>().state as UserLoaded).user.email,
                     style: greyFontsStyle.copyWith(fontWeight: FontWeight.w300),
                   )
